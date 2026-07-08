@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block title %}Hipermarket Boa Compra — Ofertas da Semana{% endblock %}
+
+{% block content %}
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">Mais escolha, melhores preços, sempre!</p>
+        <h1>Preço bom<br>todo dia.</h1>
+        <p class="hero-lead">
+          Hortifruti fresco toda manhã, açougue com corte na hora e os
+          menores preços da região em mercearia, bebidas e limpeza.
+        </p>
+        <div class="hero-actions">
+          <a href="#setores" class="btn btn-primary">Ver setores da loja</a>
+          <a href="#contato" class="btn btn-ghost">Encontrar unidade</a>
+        </div>
+      </div>
+
+      <div class="price-tag" aria-hidden="true">
+        <span class="price-tag-eyebrow">Oferta da semana</span>
+        <span class="price-tag-product">Picanha Bovina</span>
+        <div class="price-tag-value">
+          <span class="price-tag-currency">R$</span>
+          <span class="price-tag-number">39</span>
+          <span class="price-tag-cents">,90/kg</span>
+        </div>
+        <span class="price-tag-note">válido até domingo</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" id="stats">
+    <div class="wrap stats-grid">
+      <div class="stat">
+        <span class="stat-number" data-count="2">0</span>
+        <span class="stat-label">unidades no DF</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-count="8">0</span>
+        <span class="stat-label">setores por loja</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-count="4300">0</span>
+        <span class="stat-label">produtos em estoque</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-count="7">0</span>
+        <span class="stat-label">dias de funcionamento</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sobre">
+    <div class="wrap two-col">
+      <div>
+        <p class="eyebrow">Sobre o Boa Compra</p>
+        <h2>Um mercado de bairro, do tamanho de um hiper</h2>
+        <p>
+          Começamos como uma quitanda pequena e crescemos sem perder o que
+          fazia a diferença: hortifruti selecionado todo dia de manhã e
+          açougueiros que conhecem o corte que você precisa. Hoje somos um
+          hipermercado completo, mas o atendimento continua de bairro.
+        </p>
+        <p>
+          Um dos maiores desafios de operar um hiper é saber, em tempo real,
+          o que está faltando na gôndola antes que o cliente perceba. É esse
+          o problema que o nosso sistema interno de estoque resolve.
+        </p>
+      </div>
+      <div class="info-card">
+        <h3>Compromisso</h3>
+        <p>Se um produto de oferta acabar antes do prazo anunciado, você
+        leva um vale-troca de valor equivalente. Sempre.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="setores">
+    <div class="wrap">
+      <p class="eyebrow">O que você encontra</p>
+      <h2>Setores da loja</h2>
+      <div class="cards-grid">
+        <article class="card">
+          <span class="card-index">A1</span>
+          <h3>Hortifruti</h3>
+          <p>Frutas, legumes e verduras selecionados toda manhã.</p>
+        </article>
+        <article class="card">
+          <span class="card-index">A2</span>
+          <h3>Açougue e peixaria</h3>
+          <p>Cortes na hora, sob medida para o seu pedido.</p>
+        </article>
+        <article class="card">
+          <span class="card-index">A3</span>
+          <h3>Padaria</h3>
+          <p>Pães, bolos e salgados assados ao longo do dia.</p>
+        </article>
+        <article class="card">
+          <span class="card-index">A4</span>
+          <h3>Mercearia</h3>
+          <p>Do arroz ao tempero, tudo para o dia a dia da cozinha.</p>
+        </article>
+        <article class="card">
+          <span class="card-index">A5</span>
+          <h3>Frios e laticínios</h3>
+          <p>Queijos, embutidos e laticínios refrigerados.</p>
+        </article>
+        <article class="card">
+          <span class="card-index">A6</span>
+          <h3>Bebidas</h3>
+          <p>Água, refrigerante, sucos e a adega da casa.</p>
+        </article>
+        <article class="card">
+          <span class="card-index">A7</span>
+          <h3>Higiene e limpeza</h3>
+          <p>Itens de cuidado pessoal e limpeza para a casa toda.</p>
+        </article>
+        <article class="card">
+          <span class="card-index">A8</span>
+          <h3>Bazar</h3>
+          <p>Utilidades domésticas, descartáveis e organização.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="estoque">
+    <div class="wrap">
+      <p class="eyebrow">Bastidores</p>
+      <h2>Como cuidamos do estoque</h2>
+      <p class="section-lead">
+        Por trás da gôndola cheia, existe um processo — e um sistema próprio
+        que estamos construindo para apoiar cada etapa dele.
+      </p>
+
+      <ol class="steps">
+        <li>
+          <span class="step-number">1</span>
+          <div>
+            <h3>Recebimento</h3>
+            <p>Toda mercadoria é conferida na entrada antes de ir para a loja.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-number">2</span>
+          <div>
+            <h3>Cadastro e reposição</h3>
+            <p>Cada produto é cadastrado com setor, preço e quantidade disponível.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-number">3</span>
+          <div>
+            <h3>Acesso da equipe</h3>
+            <p>Cada setor acompanha e atualiza apenas o seu próprio estoque.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-number">4</span>
+          <div>
+            <h3>Alerta de reposição</h3>
+            <p>A equipe é avisada assim que um item está perto de acabar.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+{% endblock %}

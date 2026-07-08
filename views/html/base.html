@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Hipermarket Boa Compra{% endblock %}</title>
+  <meta name="description" content="Hipermarket Boa Compra — ofertas, hortifruti fresco e o menor preço da região.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>TOMATE R$ 4,99/KG</span><span>•</span>
+      <span>CARVÃO 5KG R$ 12,90</span><span>•</span>
+      <span>REFRIGERANTE 2L LEVE 3 PAGUE 2</span><span>•</span>
+      <span>FRALDAS 20% OFF</span><span>•</span>
+      <span>CAFÉ 500G R$ 9,49</span><span>•</span>
+      <span>TOMATE R$ 4,99/KG</span><span>•</span>
+      <span>CARVÃO 5KG R$ 12,90</span><span>•</span>
+      <span>REFRIGERANTE 2L LEVE 3 PAGUE 2</span><span>•</span>
+      <span>FRALDAS 20% OFF</span><span>•</span>
+      <span>CAFÉ 500G R$ 9,49</span><span>•</span>
+    </div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a href="#topo" class="brand">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Hipermarket Boa Compra" class="brand-logo">
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav">
+        <a href="#sobre">A loja</a>
+        <a href="#setores">Setores</a>
+        <a href="#estoque">O sistema</a>
+        <a href="#contato">Endereços</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="topo">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer" id="contato">
+    <div class="wrap footer-inner">
+      <div>
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Hipermarket Boa Compra" class="brand-logo footer-logo">
+        <p class="footer-copy">Mais escolha, melhores preços, sempre!</p>
+      </div>
+      <div class="footer-col">
+        <h4>Unidade Águas Claras</h4>
+        <p>Av. das Araucárias, 1200</p>
+        <p>Todos os dias — 7h às 22h</p>
+      </div>
+      <div class="footer-col">
+        <h4>Unidade Taguatinga</h4>
+        <p>QS 6, Lote 3 — Centro</p>
+        <p>Todos os dias — 7h às 22h</p>
+      </div>
+      <div class="footer-col">
+        <h4>Fale conosco</h4>
+        <p>0800 600 3010</p>
+        <p>sac@boacompra.com.br</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
