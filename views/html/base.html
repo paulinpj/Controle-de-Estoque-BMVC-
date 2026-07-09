@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}">
 </head>
 <body>
 
@@ -31,7 +32,7 @@
 
   <header class="site-header" id="site-header">
     <div class="wrap header-inner">
-      <a href="#topo" class="brand">
+      <a href="{{ url_for('home') }}" class="brand">
         <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Hipermarket Boa Compra" class="brand-logo">
       </a>
 
@@ -40,9 +41,10 @@
       </button>
 
       <nav class="site-nav" id="site-nav">
-        <a href="#sobre">A loja</a>
-        <a href="#setores">Setores</a>
-        <a href="#estoque">O sistema</a>
+        <a href="{{ url_for('home') }}#sobre">A loja</a>
+        <a href="{{ url_for('home') }}#setores">Setores</a>
+        <a href="{{ url_for('produtos.listar') }}">Estoque</a>
+        <a href="{{ url_for('categorias.listar') }}">Categorias</a>
         <a href="#contato">Endereços</a>
       </nav>
     </div>

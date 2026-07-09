@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}{{ 'Editar produto' if produto else 'Novo produto' }} — Hipermarket Boa Compra{% endblock %}
+
+{% block content %}
+  <section class="section admin-section">
+    <div class="wrap wrap-narrow">
+      <p class="eyebrow">Gestão de estoque</p>
+      <h2>{{ 'Editar produto' if produto else 'Novo produto' }}</h2>
+
+      {% include "_mensagens.html" %}
+
+      <form method="post" class="admin-form">
+        <label for="nome">Nome do produto</label>
+        <input type="text" id="nome" name="nome" placeholder="Ex.: Picanha bovina (kg)"
+               value="{{ produto.nome if produto else '' }}" required>
+
+        <label for="categoria_id">Categoria</label>
+        <select id="categoria_id" name="categoria_id" required>
+          <option value="" disabled {{ 'selected' if not produto }}>Selecione um setor</option>
+          {% for categoria in categorias %}
+            <option value="{{ categoria.id }}"
+              {{ 'selected' if produto and produto.categoria_id == categoria.id }}>
+              {{ categoria.codigo_setor }} — {{ categoria.nome }}
+            </option>
+          {% endfor %}
+        </select>
+
+        <div class="admin-form-row">
+          <div>
+            <label for="preco">Preço (R$)</label>
+            <input type="number" id="preco" name="preco" step="0.01" min="0" placeholder="0,00"
+                   value="{{ produto.preco if produto else '' }}" required>
+          </div>
+          <div>
+            <label for="quantidade">Quantidade em estoque</label>
+            <input type="number" id="quantidade" name="quantidade" step="1" min="0" placeholder="0"
+                   value="{{ produto.quantidade if produto else '' }}" required>
+          </div>
+        </div>
+
+        <div class="admin-form-actions">
+          <button type="submit" class="btn btn-primary">Salvar</button>
+          <a href="{{ url_for('produtos.listar') }}" class="btn btn-ghost">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}

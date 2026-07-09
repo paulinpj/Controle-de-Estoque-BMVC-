@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}{{ 'Editar categoria' if categoria else 'Nova categoria' }} — Hipermarket Boa Compra{% endblock %}
+
+{% block content %}
+  <section class="section admin-section">
+    <div class="wrap wrap-narrow">
+      <p class="eyebrow">Gestão de estoque</p>
+      <h2>{{ 'Editar categoria' if categoria else 'Nova categoria' }}</h2>
+
+      {% include "_mensagens.html" %}
+
+      <form method="post" class="admin-form">
+        <label for="nome">Nome da categoria</label>
+        <input type="text" id="nome" name="nome" placeholder="Ex.: Hortifruti"
+               value="{{ categoria.nome if categoria else '' }}" required>
+
+        <label for="codigo_setor">Código do setor</label>
+        <input type="text" id="codigo_setor" name="codigo_setor" placeholder="Ex.: A1"
+               value="{{ categoria.codigo_setor if categoria else '' }}" maxlength="4" required>
+
+        <div class="admin-form-actions">
+          <button type="submit" class="btn btn-primary">Salvar</button>
+          <a href="{{ url_for('categorias.listar') }}" class="btn btn-ghost">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Produtos — Hipermarket Boa Compra{% endblock %}
+
+{% block content %}
+  <section class="section admin-section">
+    <div class="wrap">
+      <div class="admin-header">
+        <div>
+          <p class="eyebrow">Gestão de estoque</p>
+          <h2>Produtos</h2>
+        </div>
+        <a href="{{ url_for('produtos.novo') }}" class="btn btn-primary">+ Novo produto</a>
+      </div>
+
+      {% include "_mensagens.html" %}
+
+      {% if produtos %}
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+                <th>Qtd.</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for produto in produtos %}
+                <tr>
+                  <td>{{ produto.nome }}</td>
+                  <td>{{ produto.categoria_nome or '—' }}</td>
+                  <td>R$ {{ "%.2f"|format(produto.preco)|replace('.', ',') }}</td>
+                  <td>
+                    {{ produto.quantidade }}
+                    {% if produto.estoque_baixo %}
+                      <span class="badge-low" title="Estoque baixo">estoque baixo</span>
+                    {% endif %}
+                  </td>
+                  <td class="admin-actions">
+                    <a href="{{ url_for('produtos.editar', produto_id=produto.id) }}" class="btn-link">Editar</a>
+                    <form method="post" action="{{ url_for('produtos.excluir', produto_id=produto.id) }}"
+                          onsubmit="return confirm('Excluir o produto \'{{ produto.nome }}\'?');">
+                      <button type="submit" class="btn-link btn-link-danger">Excluir</button>
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p class="admin-empty">Nenhum produto cadastrado ainda.</p>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

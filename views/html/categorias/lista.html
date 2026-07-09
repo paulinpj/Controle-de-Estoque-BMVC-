@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Categorias — Hipermarket Boa Compra{% endblock %}
+
+{% block content %}
+  <section class="section admin-section">
+    <div class="wrap">
+      <div class="admin-header">
+        <div>
+          <p class="eyebrow">Gestão de estoque</p>
+          <h2>Categorias</h2>
+        </div>
+        <a href="{{ url_for('categorias.nova') }}" class="btn btn-primary">+ Nova categoria</a>
+      </div>
+
+      {% include "_mensagens.html" %}
+
+      {% if categorias %}
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Setor</th>
+                <th>Nome</th>
+                <th>Produtos</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for categoria in categorias %}
+                <tr>
+                  <td><span class="tag-setor">{{ categoria.codigo_setor }}</span></td>
+                  <td>{{ categoria.nome }}</td>
+                  <td>{{ categoria.total_produtos }}</td>
+                  <td class="admin-actions">
+                    <a href="{{ url_for('categorias.editar', categoria_id=categoria.id) }}" class="btn-link">Editar</a>
+                    <form method="post" action="{{ url_for('categorias.excluir', categoria_id=categoria.id) }}"
+                          onsubmit="return confirm('Excluir a categoria \'{{ categoria.nome }}\'?');">
+                      <button type="submit" class="btn-link btn-link-danger">Excluir</button>
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p class="admin-empty">Nenhuma categoria cadastrada ainda.</p>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}
